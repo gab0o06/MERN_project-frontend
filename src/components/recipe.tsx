@@ -66,7 +66,12 @@ export const RecipeComponent = (props: SavedRecipes) => {
           })}
         </div>
       </div>
-      <img className="list__image" src={props.imageURL} alt={props.name} />
+      <img
+        loading="lazy"
+        className="list__image"
+        src={props.imageURL}
+        alt={props.name}
+      />
       <div className="list__footer">
         <p>Intructions: {props.instructions}</p>
         <p>Cooking Time: {props.cookingTime} (minutes)</p>

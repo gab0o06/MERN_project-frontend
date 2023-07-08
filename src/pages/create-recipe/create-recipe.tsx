@@ -41,6 +41,8 @@ export const CreateRecipe = () => {
 
   const onSubmit = async (data: CreateRecipeData) => {
     try {
+      console.log(data);
+
       const response = await axios.post(
         "https://mern-project-mf1v.onrender.com/recipes",
         {

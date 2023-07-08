@@ -4,6 +4,7 @@
 
 .home__list{
     display: grid;
+    padding: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     place-items: center center;
@@ -80,3 +81,49 @@
     padding: 10px 15px;
     cursor: pointer;
 }
+
+@media (1025px <= width <= 1400px){
+    .list__item{
+        width: 40%;
+    }
+}
+@media (320px <= width <= 480px){
+    .home__list{
+        padding: 0;
+    }
+    .list__item{
+        width: 60%;
+        padding: 0 40px
+    }
+    
+    .list__title{
+        margin: 35px 0 0 0
+    }
+    
+    .list__description{
+        font-size: 0.75em;
+    }
+    
+    .list__footer{
+        margin-bottom: 20px;
+        font-size: 0.60em;
+    }
+    
+    .ingredients__container{
+        margin-left: 30px;
+        font-size: 0.60em;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+    
+    .ingredients__container p{
+        margin:  0 0 10px
+    }
+    
+    .button__recipe{
+        padding: 5px 7.5px;
+        font-size: 0.75em;
+    }
+}
+    
