@@ -18,7 +18,7 @@ export const RecipeComponent = (props: SavedRecipes) => {
 
     try {
       await axios.put(
-        "http://localhost:3001/recipes/",
+        "https://mern-project-mf1v.onrender.com/recipes/",
         {
           recipeID,
           userID,
@@ -66,11 +66,7 @@ export const RecipeComponent = (props: SavedRecipes) => {
           })}
         </div>
       </div>
-      <img
-        className="list__image"
-        src={`http://localhost:3001/public/images/${props.imageURL}`}
-        alt={props.name}
-      />
+      <img className="list__image" src={props.imageURL} alt={props.name} />
       <div className="list__footer">
         <p>Intructions: {props.instructions}</p>
         <p>Cooking Time: {props.cookingTime} (minutes)</p>

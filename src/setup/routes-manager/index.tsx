@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Navigate,
   Route,
 } from "react-router-dom";
 import { Home } from "../../pages/home/home";
@@ -18,7 +19,8 @@ export const createRouter = createBrowserRouter(
       <Route path="auth" element={<Auth />} />
       <Route path="create-recipe" element={<CreateRecipe />} />
       <Route path="save-recipes" element={<SaveRecipe />} />
-      <Route path="*" element={<ErrorPage />} />
+      <Route path="404" element={<ErrorPage />} />
+      <Route path="*" element={<Navigate to="/404" />} />
     </Route>
   )
 );

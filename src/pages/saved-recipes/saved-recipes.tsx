@@ -16,7 +16,7 @@ export const SaveRecipe = () => {
     const fetchSavedRecipes = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/${userID}`
+          `https://mern-project-mf1v.onrender.com/recipes/savedRecipes/${userID}`
         );
         setSavedRecipes(data.savedRecipes);
       } catch (err) {

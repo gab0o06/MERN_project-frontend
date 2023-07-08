@@ -30,7 +30,10 @@ export const Register = () => {
     const { confirmPassword, ...userData } = data;
 
     try {
-      await axios.post(`http://localhost:3001/auth/register`, userData);
+      await axios.post(
+        `https://mern-project-mf1v.onrender.com/auth/register`,
+        userData
+      );
       alert("Register successfully, now you can login!");
     } catch (err) {
       console.log(err);

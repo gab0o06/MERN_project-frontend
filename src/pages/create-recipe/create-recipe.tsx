@@ -42,7 +42,7 @@ export const CreateRecipe = () => {
   const onSubmit = async (data: CreateRecipeData) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/recipes",
+        "https://mern-project-mf1v.onrender.com/recipes",
         {
           ...data,
           userID,
@@ -91,9 +91,6 @@ export const CreateRecipe = () => {
                 id={`${ingredient}${key}`}
                 key={key}
                 {...register(`ingredients.${key}`)}
-                onChange={(e) => {
-                  ingredient = e.target.value;
-                }}
               />
             );
           })}

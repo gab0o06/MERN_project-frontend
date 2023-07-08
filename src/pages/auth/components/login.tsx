@@ -30,7 +30,7 @@ export const Login = () => {
   const onSubmit = async (data: LoginData) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/auth/login",
+        "https://mern-project-mf1v.onrender.com/auth/login",
         data
       );
       if (response.data.error) return alert("Ese usuario no existe");

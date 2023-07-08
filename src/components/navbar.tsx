@@ -18,6 +18,8 @@ export const Navbar = () => {
     setIsMenuVisible(!isMenuVisible);
   };
 
+  const mql = matchMedia("(max-width: 480px)");
+
   const handleClickOutside = (e: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
       setIsMenuVisible(false);
@@ -25,11 +27,8 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    console.log(menuRef.current);
-
     document.addEventListener("click", handleClickOutside);
     return () => {
-      console.log(menuRef.current);
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
@@ -61,12 +60,16 @@ export const Navbar = () => {
               isMenuVisible ? "link__container-mobile" : "link__container"
             }
           >
-            <Link className="link__item" onClick={toggleMenu} to="/">
+            <Link
+              className="link__item"
+              onClick={mql.matches ? toggleMenu : () => {}}
+              to="/"
+            >
               Home
             </Link>
             <Link
               className="link__item"
-              onClick={toggleMenu}
+              onClick={mql.matches ? toggleMenu : () => {}}
               to="/create-recipe"
             >
               Create Recipe
@@ -76,7 +79,7 @@ export const Navbar = () => {
               <>
                 <Link
                   className="link__item"
-                  onClick={toggleMenu}
+                  onClick={mql.matches ? toggleMenu : () => {}}
                   to="/save-recipes"
                 >
                   Save Recipes
@@ -84,7 +87,11 @@ export const Navbar = () => {
                 <button onClick={logout}>Log Out</button>
               </>
             ) : (
-              <Link className="link__item" onClick={toggleMenu} to="/auth">
+              <Link
+                className="link__item"
+                onClick={mql.matches ? toggleMenu : () => {}}
+                to="/auth"
+              >
                 Auth
               </Link>
             )}

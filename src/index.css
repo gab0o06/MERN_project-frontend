@@ -29,6 +29,7 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 1px solid #fc450860;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 75px;
   margin-bottom: 30px;
 }
