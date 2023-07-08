@@ -11,7 +11,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
-    username: yup.string().required("* Your username is required!"),
+    username: yup.string().trim().required("* Your username is required!"),
     password: yup
       .string()
       .min(4, "* Must be at least 4 characters")
@@ -28,8 +28,6 @@ export const Login = () => {
   });
 
   const onSubmit = async (data: LoginData) => {
-    // console.log(data);
-
     try {
       const response = await axios.post(
         "http://localhost:3001/auth/login",

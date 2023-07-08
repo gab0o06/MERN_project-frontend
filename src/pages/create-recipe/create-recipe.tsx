@@ -12,12 +12,13 @@ import { CreateRecipeData } from "../../interfaces";
 
 export const CreateRecipe = () => {
   const schema = yup.object().shape({
-    name: yup.string().required(),
+    name: yup.string().trim().required(),
     description: yup.string().required(),
     ingredients: yup.array().of(yup.string().min(1)).required(),
     instructions: yup.string().required(),
     imageURL: yup
       .string()
+      .trim()
       .url()
       .matches(/(?:(?:jpe?g|png|gif|webp))/gi)
       .required(),
