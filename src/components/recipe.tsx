@@ -73,8 +73,13 @@ export const RecipeComponent = (props: SavedRecipes) => {
         alt={props.name}
       />
       <div className="list__footer">
-        <p>Intructions: {props.instructions}</p>
-        <p>Cooking Time: {props.cookingTime} (minutes)</p>
+        <p>
+          Intructions: <span className="list__white">{props.instructions}</span>
+        </p>
+        <p>
+          Cooking Time:{" "}
+          <span className="list__white">{props.cookingTime} (minutes)</span>
+        </p>
       </div>
     </li>
   );

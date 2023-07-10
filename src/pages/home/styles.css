@@ -1,5 +1,9 @@
 .home__title{
     margin-left: 30px;
+    font-size: 2.75em;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
 }
 
 .home__list{
@@ -39,6 +43,7 @@
 .list__description{
     font-size: 1em;
     margin-bottom: 0;
+    color: var(--white-color)
 }
 
 .list__image{
@@ -55,7 +60,11 @@
 
 .list__footer{
     margin-bottom: 40px;
-    margin-top: 20px
+    margin-top: 20px;
+}
+
+.list__white{
+    color: var(--white-color)
 }
 
 .ingredients__container{
@@ -66,7 +75,8 @@
 }
 
 .ingredients__container p{
-    margin: 5px 0 20px
+    margin: 5px 0 20px;
+    color: var(--white-color)
 }
 
 .button__recipe{
