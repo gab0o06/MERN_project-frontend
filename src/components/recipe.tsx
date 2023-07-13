@@ -40,7 +40,7 @@ export const RecipeComponent = (props: SavedRecipes) => {
       <div className="list__header">
         <h2 className="list__title">{props.name}</h2>
         {props.savedRecipes ? (
-          <button className="button__recipe" disabled={true}>
+          <button className="button__recipe white-color" disabled={true}>
             Saved
           </button>
         ) : (
@@ -49,7 +49,9 @@ export const RecipeComponent = (props: SavedRecipes) => {
               SaveRecipe(props._id);
             }}
             disabled={isSaved}
-            className="button__recipe"
+            className={
+              isSaved ? "button__recipe white-color" : "button__recipe"
+            }
           >
             {isSaved ? "Saved" : "Save Recipe"}
           </button>

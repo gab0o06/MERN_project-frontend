@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import { useCookies } from "react-cookie";
 
@@ -27,7 +27,6 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
@@ -60,40 +59,52 @@ export const Navbar = () => {
               isMenuVisible ? "link__container-mobile" : "link__container"
             }
           >
-            <Link
-              className="link__item"
-              onClick={mql.matches ? toggleMenu : () => {}}
+            <NavLink
               to="/"
+              className={({ isActive }) => {
+                return isActive ? "link__item-active link__item" : "link__item";
+              }}
+              onClick={mql.matches ? toggleMenu : () => {}}
             >
               Home
-            </Link>
-            <Link
-              className="link__item"
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => {
+                return isActive ? "link__item-active link__item" : "link__item";
+              }}
               onClick={mql.matches ? toggleMenu : () => {}}
               to="/create-recipe"
             >
               Create Recipe
-            </Link>
+            </NavLink>
 
             {cookies.access_token ? (
               <>
-                <Link
-                  className="link__item"
+                <NavLink
+                  className={({ isActive }) => {
+                    return isActive
+                      ? "link__item-active link__item"
+                      : "link__item";
+                  }}
                   onClick={mql.matches ? toggleMenu : () => {}}
                   to="/save-recipes"
                 >
                   Save Recipes
-                </Link>
+                </NavLink>
                 <button onClick={logout}>Log Out</button>
               </>
             ) : (
-              <Link
-                className="link__item"
+              <NavLink
+                className={({ isActive }) => {
+                  return isActive
+                    ? "link__item-active link__item"
+                    : "link__item";
+                }}
                 onClick={mql.matches ? toggleMenu : () => {}}
                 to="/auth"
               >
                 Auth
-              </Link>
+              </NavLink>
             )}
           </div>
         </div>
